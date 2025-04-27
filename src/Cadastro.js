@@ -11,6 +11,8 @@ export default function Cadastro() {
   const [confirmarSenha, setConfirmarSenha] = useState('')
   const navigation = useNavigation()
 
+  //Cria uma função para cadastrar o usuário
+  // A função é assíncrona porque ela vai fazer uma requisição para o AsyncStorage
   const cadastrar = async () => {
     if (!email || !senha || !nome) {
       return Alert.alert('Erro', 'Preencha todos os campos')
@@ -19,6 +21,8 @@ export default function Cadastro() {
       return Alert.alert('Erro', 'As senhas não coincidem')
     }
 
+    //Cria uma constante para o usuario e salva no AsyncStorage
+    // O AsyncStorage é uma forma de armazenar dados localmente no dispositivo do usuário
     const novoUsuario = { nome, email, senha }
     await AsyncStorage.setItem('usuario', JSON.stringify(novoUsuario))
     Alert.alert('Sucesso', 'Cadastro realizado!')

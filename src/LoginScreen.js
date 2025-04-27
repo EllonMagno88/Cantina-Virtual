@@ -10,16 +10,19 @@ const LoginScreen = () => {
   const [senha, setSenha] = useState('')
   const navigation = useNavigation()
 
+  //Cria uma função para fazer o login do usuário, requisitando as informações preenchidas no cadastro
   const Login = async () => {
     const dados = await AsyncStorage.getItem('usuario')
     const usuario = JSON.parse(dados)
 
+
+  // Verifica se o usuário existe e se o email e senha estão corretos
     if (
       usuario &&
       email.trim().toLowerCase() === usuario.email.trim().toLowerCase() &&
       senha === usuario.senha
     ) {
-      navigation.navigate('telaPrincipal') // agora certinho!
+      navigation.navigate('telaPrincipal') 
     } else {
       Alert.alert('Erro', 'Email ou senha incorretos')
     }
