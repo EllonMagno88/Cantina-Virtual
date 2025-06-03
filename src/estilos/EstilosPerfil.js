@@ -15,6 +15,10 @@ const estilosPerfil = StyleSheet.create({
         flexDirection: "row", 
         justifyContent: "space-around", 
         flexWrap: "wrap", 
+        backgroundColor: "#fff",
+        borderRadius: 10,
+        borderWidth: 1,
+        padding: 20,
         gap: 20,
 
 

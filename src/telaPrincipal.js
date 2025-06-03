@@ -46,7 +46,7 @@ const telaPrincipal = () => {
   
     <View style={[estilosTelaPrincipal.ViewBotoes]}>
 
-  <TouchableOpacity>
+  <TouchableOpacity onPress={() => navigate('telaComidas')}>
     <View style={[estilosTelaPrincipal.Botoes]}>
 
       <Image source={{uri: "https://cdn-icons-png.flaticon.com/128/1625/1625062.png"}} style={{position: 'absolute', height: 70, width: 70, marginTop: 80, marginLeft: 15,}}></Image>
@@ -100,6 +100,11 @@ const telaPrincipal = () => {
 
     <TouchableOpacity>
       <Text style={{fontSize:16, marginBottom:15}}>Histórico de gastos</Text>
+
+    </TouchableOpacity>
+
+    <TouchableOpacity>
+          <Text style={{fontsize:16, marginBottom:15}}>SAC</Text>
 
     </TouchableOpacity>
   </View>

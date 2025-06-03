@@ -76,7 +76,7 @@ const LoginScreen = () => {
 
           <TouchableOpacity
             style={{ borderWidth: 1, borderRadius: 20, paddingBottom: 15,  backgroundColor: 'blue' }}
-            onPress={() => navigation.navigate('Cadastro')}
+            onPress={() => navigation.navigate('telaPrincipal')}
           >
             <Text style={[estilos.TextoCadastro]}>Sem conta? Cadastre-se aqui</Text>
           </TouchableOpacity>

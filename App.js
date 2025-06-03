@@ -9,6 +9,7 @@ import telaPrincipal from './src/telaPrincipal'
 import Perfil from './src/Perfil'
 import Cadastro from './src/Cadastro'
 import LoginScreen from './src/LoginScreen'
+import TelaComidas from './src/telaComidas'
 
 
 const { Navigator, Screen } = createNativeStackNavigator()
@@ -22,6 +23,7 @@ const App = () => {
 				<Screen name='LoginScreen' component={LoginScreen} options={{ title: 'LoginScreen' }} />
 				<Screen name='Perfil' component={Perfil} options={{ title: 'Perfil'}} />
 				<Screen name='Cadastro' component={Cadastro} options={{title: 'Cadastro'}} />
+				<Screen name='telaComidas' component={TelaComidas} options={{ title: 'telaComidas' }} />
 			</Navigator>
 		</NavigationContainer>
 	)
