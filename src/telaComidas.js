@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  Image,
-  FlatList,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
+import { View,Text,Image,FlatList,StyleSheet,TouchableOpacity,} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import estilosTelaPrincipal from "./estilos/EstilosTelaPrincipal";
 
@@ -86,7 +79,7 @@ const TelaComidas = () => {
         keyExtractor={(item) => item.id}
         contentContainerStyle={{ padding: 20 }}
         renderItem={({ item }) => (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Compras', { comidas: item })}>
           <View style={styles.itemContainer}>
             <Image source={{ uri: item.imagem }} style={styles.imagem} />
             <Image source={{ uri: item.imagem2 }} style={styles.imagem2} />

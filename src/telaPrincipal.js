@@ -67,7 +67,7 @@ const telaPrincipal = () => {
     </View>
   </TouchableOpacity>
 
-  <TouchableOpacity>
+  <TouchableOpacity onPress={() => navigate('Bebidas')}>
     <View style={[estilosTelaPrincipal.Botoes]}>
 
     <Image source={{uri: "https://cdn-icons-png.flaticon.com/128/390/390166.png"}} style={{position:'absolute', height: 70, width:70, marginTop: 80, marginLeft:15,}}></Image>
