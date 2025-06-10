@@ -6,6 +6,7 @@ import * as ImagePicker from 'expo-image-picker';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect } from "react";
 import estilosPerfil from "./estilos/EstilosPerfil"; 
+;
 
 const Perfil = () => {
 
@@ -47,6 +48,34 @@ const Perfil = () => {
     
       carregarImagem();
     }, []);
+
+    const [primeiraCompra, setPrimeiraCompra,] = useState(false);
+
+    useEffect(() => {
+        const verificarPrimeiraCompra = async () => {
+          const primeiraCompraSalva = await AsyncStorage.getItem('primeiraCompra');
+          if (primeiraCompraSalva === 'true') {
+            setPrimeiraCompra(true);
+          }
+        }
+        verificarPrimeiraCompra();
+      }, []);
+
+      const [cinquentaCompras, setCinquentaCompras] = useState(false);
+      useEffect(() => { 
+          const verificarCinquentaCompras = async () => {
+            const cinquentaComprasSalva = await AsyncStorage.getItem('cinquentaCompras');
+            if (cinquentaComprasSalva === 'true') {
+              setCinquentaCompras(true);
+            }
+          }
+
+          verificarCinquentaCompras();
+      }, []);
+   
+    
+
+    
     
 
     return (
@@ -90,22 +119,24 @@ const Perfil = () => {
         </Text>
 
         <View style={[estilosPerfil.ViewConquistas]}>
-          <View style={[estilosPerfil.ViewIcones]}>
-            <Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/2583/2583346.png" }} style={{ width: 60, height: 60 }} />
-            <Text style={{ textAlign: "center", marginTop: 5, fontWeight: 'bold' }}>Cliente Fiel</Text>
-            <Text style={{ textAlign: "center", fontSize: 12 }}>50 compras!</Text>
+          <View style={[estilosPerfil.ViewIcones, {opacity: cinquentaCompras ? 1 : 0.4}]}>
+           
+            <Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/2583/2583346.png" }} style={{ width: 60, height: 60, }} />
+            <Text style={{ textAlign: "center", marginTop: 5, fontWeight: 'bold',  }}>Cliente Fiel</Text>
+            <Text style={{ textAlign: "center", fontSize: 12,  }}>50 compras!</Text>
+          </View>
+
+          <View style={[estilosPerfil.ViewIcones, {opacity: primeiraCompra ? 1 : 0.4}]}>
+            
+            <Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/179/179386.png" }} style={{ width: 60, height: 60, }} />
+            <Text style={{ textAlign: "center", marginTop: 5, fontWeight: 'bold',  }}>Primeira Compra</Text>
+            <Text style={{ textAlign: "center", fontSize: 12,  }}>Parabéns!</Text>
           </View>
 
           <View style={[estilosPerfil.ViewIcones]}>
-            <Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/179/179386.png" }} style={{ width: 60, height: 60 }} />
-            <Text style={{ textAlign: "center", marginTop: 5, fontWeight: 'bold' }}>Primeira Compra</Text>
-            <Text style={{ textAlign: "center", fontSize: 12 }}>Parabéns!</Text>
-          </View>
-
-          <View style={[estilosPerfil.ViewIcones]}>
-            <Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/3524/3524388.png" }} style={{ width: 60, height: 60 }} />
-            <Text style={{ textAlign: "center", marginTop: 5, fontWeight: 'bold' }}>Compartilhou o app</Text>
-            <Text style={{ textAlign: "center", fontSize: 12 }}>Valeu!</Text>
+            <Image source={{ uri: "https://cdn-icons-png.flaticon.com/128/3524/3524388.png" }} style={{ width: 60, height: 60,  }} />
+            <Text style={{ textAlign: "center", marginTop: 5, fontWeight: 'bold',  }}>Compartilhou o app</Text>
+            <Text style={{ textAlign: "center", fontSize: 12,  }}>Valeu!</Text>
           </View>
         </View>
       </View>

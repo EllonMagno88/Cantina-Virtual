@@ -1,6 +1,7 @@
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useRoute } from '@react-navigation/native'
-import React from 'react'
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import  React, {useState} from 'react'
+import { View, Text, Image, TouchableOpacity, } from 'react-native'
 
 const Compras = () => {
   const route = useRoute()
@@ -8,6 +9,8 @@ const Compras = () => {
 
   // Escolhe o item que foi recebido
   const item = comidas || bebidas
+
+  const [quantidade, setQuantidade] = useState(1)
 
 
   return (
@@ -18,10 +21,24 @@ const Compras = () => {
 
       <TouchableOpacity
         style={{ backgroundColor: 'green', padding: 15, borderRadius: 10 }}
-        onPress={() => {
-          // Aqui você pode registrar o pedido
-          alert(`Pedido de "${item.nome}" finalizado!`)
+        onPress={async () => {
+          setQuantidade(quantidade + 1)
+
+          if (quantidade === 1) {
+            await AsyncStorage.setItem('primeiraCompra', 'true')
+             alert('Parabéns! Você desbloqueou a conquista "Primeira Compra"')
+          }
+
+          if (quantidade === 50) {
+            await AsyncStorage.setItem('cinquentaCompras', 'true')
+            alert('Parabéns! Você desbloqueou a conquista "Cliente Fiel"')
+          }
+
+          if (quantidade !=1 && quantidade != 50) { alert(`Pedido de "${item.nome}" finalizado!`)}
+
         }}
+         
+        
       >
         <Text style={{ color: 'white', textAlign: 'center', fontSize: 16 }}>
           Finalizar Pedido
@@ -32,6 +49,7 @@ const Compras = () => {
 }
 
 export default Compras
+
 
 
 

@@ -28,6 +28,7 @@ const estilosPerfil = StyleSheet.create({
 
             alignItems: "center", 
             width: 100,
+            opacity: 0.4,
 
         },
 
