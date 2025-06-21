@@ -2,6 +2,7 @@ import React from "react";
 import { View,Text,Image,FlatList,StyleSheet,TouchableOpacity,} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import estilosTelaPrincipal from "./estilos/EstilosTelaPrincipal";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const TelaBebidas = () => {
   const navigation = useNavigation();

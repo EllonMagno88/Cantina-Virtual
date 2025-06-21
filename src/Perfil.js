@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Feather } from "@expo/vector-icons";
 import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import * as ImagePicker from 'expo-image-picker';
@@ -12,6 +12,7 @@ const Perfil = () => {
 
     const {goBack, navigate} = useNavigation();
     const [imagemPerfil, setImagemPerfil] = useState(null);
+    const [nome, setNome] = useState('')
 
     const escolherImagem = async () => {
 
@@ -36,6 +37,7 @@ const Perfil = () => {
 
 
     };
+
 
     //Garante que a imagem permaneça salva mesmo após a troca de telas no app.
    useEffect(() => {
@@ -73,7 +75,15 @@ const Perfil = () => {
           verificarCinquentaCompras();
       }, []);
    
-    
+       useEffect(() => {
+    const carregarNome = async () => {
+      const nomeSalvo = await AsyncStorage.getItem('nome')
+      if (nomeSalvo) {
+        setNome(nomeSalvo)
+      }
+    }
+    carregarNome()
+  }, [])
 
     
     
@@ -112,7 +122,7 @@ const Perfil = () => {
 
 {/* Conquistas */}
 <View style={[estilosPerfil.ViewPrincipal]}>
-        <Text style={{fontSize: 20, fontWeight: "bold", textAlign: 'center', fontFamily: 'Verdana', marginBottom: 40, marginLeft: 135,  position: 'absolute'}}>Olá, Usuário</Text>
+        <Text style={{fontSize: 20, fontWeight: "bold", textAlign: 'center', fontFamily: 'Verdana', marginBottom: 40, marginLeft: 150,  position: 'absolute'}}>Olá, {nome}</Text>
 
         <Text style={{ fontSize: 22, fontWeight: "bold", marginTop:80, marginBottom: 50, textAlign: "center", fontFamily: 'Verdana' }}>
           Minhas Conquistas

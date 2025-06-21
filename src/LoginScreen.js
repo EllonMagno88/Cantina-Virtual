@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
-import { Alert, Image, View, Text, TouchableOpacity } from 'react-native'
+import { Alert, Image, View, Text, TouchableOpacity, KeyboardAvoidingView } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { TextInput } from 'react-native-paper'
 import estilos from './estilos/Estilos'
@@ -29,6 +29,7 @@ const LoginScreen = () => {
   }
 
   return (
+    
     <View style={[estilos.PlanoDeFundo]}>
       <View style={[estilos.PlanoDeFundo2]} />
 
@@ -48,7 +49,7 @@ const LoginScreen = () => {
         <View style={[estilos.PratoCirculoExterno]}>
           <View style={[estilos.PratoCirculoInterno]} />
         </View>
-
+      
         <View style={[estilos.ViewInferior]}>
           <TextInput
             placeholder="Insira seu Email"
@@ -66,7 +67,7 @@ const LoginScreen = () => {
             mode="outlined"
             style={{ borderRadius: 10,  }}
           />
-
+    
           <TouchableOpacity
             style={{ borderWidth: 1, borderRadius: 20, paddingBottom: 15, backgroundColor: 'blue' }}
             onPress={Login}
@@ -80,9 +81,11 @@ const LoginScreen = () => {
           >
             <Text style={[estilos.TextoCadastro]}>Sem conta? Cadastre-se aqui</Text>
           </TouchableOpacity>
+          
         </View>
       </View>
     </View>
+   
   )
 }
 

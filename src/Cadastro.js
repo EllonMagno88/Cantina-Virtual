@@ -25,6 +25,7 @@ export default function Cadastro() {
     // O AsyncStorage é uma forma de armazenar dados localmente no dispositivo do usuário
     const novoUsuario = { nome, email, senha }
     await AsyncStorage.setItem('usuario', JSON.stringify(novoUsuario))
+    await AsyncStorage.setItem('nome', nome)
     Alert.alert('Sucesso', 'Cadastro realizado!')
     navigation.navigate('LoginScreen') 
   }
@@ -56,6 +57,7 @@ export default function Cadastro() {
             value={nome}
             onChangeText={setNome}
             style={{ borderWidth: 1, padding: 8, borderRadius: 10, backgroundColor: 'white' }}
+        
           />
           <TextInput
             placeholder="Email"
@@ -80,7 +82,7 @@ export default function Cadastro() {
 
           <TouchableOpacity
             onPress={cadastrar}
-            style={{ backgroundColor: 'green', padding: 15, borderRadius: 10 }}
+            style={{ backgroundColor: 'blue', padding: 15, borderRadius: 10 }}
           >
             <Text style={{ color: 'white', textAlign: 'center' }}>Cadastrar</Text>
           </TouchableOpacity>

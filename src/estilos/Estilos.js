@@ -7,14 +7,15 @@ const estilos = StyleSheet.create({
 
         flex: 1, 
         borderWidth: 5,  
-        position: 'static', 
+        position: 'relative',
+       
 
     },
 
     PlanoDeFundo2:{
 
         backgroundColor: '#FF0000', 
-        position: 'absolute', 
+        position: 'absolute',
         top: 0, 
         left: 0, 
         right: 0, 
@@ -24,12 +25,13 @@ const estilos = StyleSheet.create({
     },
 
     ViewPrincipal: {
-
+        
+        position: 'relative',
         flex: 1 , 
         gap: 8, 
         zIndex: 20, 
         backgroundColor: '#FF0000', 
-        position: 'relative',
+       
 
     },
 
@@ -60,7 +62,7 @@ const estilos = StyleSheet.create({
 
         width: 80, 
         height: 80, 
-        position: 'absolute', 
+        position: 'absolute',
         marginTop: 263, 
         zIndex: 10, 
         marginLeft: 62,
@@ -94,7 +96,7 @@ const estilos = StyleSheet.create({
 
     ViewInferior:{
 
-         marginTop: 30, 
+         marginTop: 28, 
          paddingHorizontal: 42, 
          gap: 20, 
     },

@@ -12,6 +12,9 @@ import LoginScreen from './src/LoginScreen'
 import TelaComidas from './src/telaComidas'
 import TelaBebidas from './src/Bebidas'
 import Compras from './src/Compras'
+import SAC from './src/Sac'
+import HistoricoPedidos from './src/telaHistóricoPedidos'
+import HistoricoGastos from './src/telaHistóricoGastos'
 
 
 const { Navigator, Screen } = createNativeStackNavigator()
@@ -28,6 +31,9 @@ const App = () => {
 				<Screen name='telaComidas' component={TelaComidas} options={{ title: 'Comidas' }} />
 				<Screen name='Bebidas' component={TelaBebidas} options={{ title: 'Bebidas' }} />
 				<Screen name='Compras' component={Compras} options={{ title: 'Confirmar Compra' }} />
+				<Screen name='Sac' component={SAC} options={{ title: 'SAC' }} />
+				<Screen name='telaHistóricoPedidos' component={HistoricoPedidos} options={{ title: 'Histórico de Pedidos' }} />
+				<Screen name='telaHistóricoGastos' component={HistoricoGastos} options={{ title: 'Histórico de Gastos' }} />
 			</Navigator>
 		</NavigationContainer>
 	)
