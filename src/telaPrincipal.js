@@ -119,7 +119,7 @@ const resultadosFiltrados = catalogo.filter(item =>
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigate('telaMaisPopulares')}>
           <View style={[estilosTelaPrincipal.Botoes]}>
             <Image source={{ uri: 'https://cdn-icons-png.flaticon.com/128/4325/4325956.png' }} style={{ position: 'absolute', height: 70, width: 70, marginTop: 80, marginLeft: 15 }} />
             <Text style={{ position: 'absolute', marginTop: 160, marginLeft: 29, fontWeight: 'bold', fontFamily: 'Verdana', fontSize: 18 }}>Mais</Text>

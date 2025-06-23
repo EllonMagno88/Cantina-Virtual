@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import estilos from './estilos/EstilosTelaPrincipal'
+import estilosHistoricoGastos from './estilos/EstilosHistoricoGastos'
 
 const HistoricoGastos = () => {
   const [gastos, setGastos] = useState({})
@@ -35,14 +36,14 @@ const HistoricoGastos = () => {
 
   return (
     <View style={[estilos.PlanoDeFundo, { padding: 20, backgroundColor: '#FF0000' }]}>
-      <View style={styles.bloco}>
-        <Text style={styles.titulo}>Gastos do mês atual ({mesAtual}):</Text>
-        <Text style={styles.valor}>R$ {gastos[mesAtual]?.toFixed(2) || '0,00'}</Text>
+      <View style={[estilosHistoricoGastos.bloco]}>
+        <Text style={[estilosHistoricoGastos.titulo]}>Gastos do mês atual ({mesAtual}):</Text>
+        <Text style={[estilosHistoricoGastos.valor]}>R$ {gastos[mesAtual]?.toFixed(2) || '0,00'}</Text>
       </View>
 
-      <View style={styles.bloco}>
-        <Text style={styles.titulo}>Gastos do mês anterior ({mesAnterior}):</Text>
-        <Text style={styles.valor}>R$ {gastos[mesAnterior]?.toFixed(2) || '0,00'}</Text>
+      <View style={[estilosHistoricoGastos.bloco]}>
+        <Text style={[estilosHistoricoGastos.titulo]}>Gastos do mês anterior ({mesAnterior}):</Text>
+        <Text style={[estilosHistoricoGastos.valor]}>R$ {gastos[mesAnterior]?.toFixed(2) || '0,00'}</Text>
       </View>
     </View>
   )

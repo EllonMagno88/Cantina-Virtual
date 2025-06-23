@@ -2,8 +2,8 @@ import { useNavigation } from '@react-navigation/native'
 import { useState, useEffect,  } from 'react'
 import { Text,  View, Image, FlatList, StyleSheet } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-
 import estilosTelaPrincipal from './estilos/EstilosTelaPrincipal'
+import estilosHistoricoPedidos from './estilos/EstilosHistoricoPedidos'
 
 const HistoricoPedidos = () => {
     const [pedidos, setPedidos] = useState([])
@@ -30,12 +30,12 @@ const HistoricoPedidos = () => {
         keyExtractor={(item, index) => index.toString()}
         contentContainerStyle={{ padding: 20 }}
         renderItem={({ item }) => (
-          <View style={styles.itemContainer}>
-            <Image source={{ uri: item.imagem }} style={styles.imagem} />
+          <View style={[estilosHistoricoPedidos.itemContainer]}>
+            <Image source={{ uri: item.imagem }} style={[estilosHistoricoPedidos.imagem]} />
             <View>
-              <Text style={styles.nome}>{item.nome}</Text>
+              <Text style={[estilosHistoricoPedidos.nome]}>{item.nome}</Text>
               <Text>{item.preco}</Text>
-              <Text style={styles.data}>{item.data}</Text>
+              <Text style={[estilosHistoricoPedidos.data]}>{item.data}</Text>
             </View>
           </View>
         )}
@@ -44,30 +44,7 @@ const HistoricoPedidos = () => {
   )
 }
 
-const styles = StyleSheet.create({
-  itemContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 16,
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    padding: 10,
-  },
-  imagem: {
-    width: 50,
-    height: 50,
-    marginRight: 10,
-  },
-  nome: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  data: {
-    fontSize: 12,
-    color: '#888',
-    marginTop: 4,
-  },
-})
+
 
 export default HistoricoPedidos
         

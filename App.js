@@ -15,6 +15,7 @@ import Compras from './src/Compras'
 import SAC from './src/Sac'
 import HistoricoPedidos from './src/telaHistóricoPedidos'
 import HistoricoGastos from './src/telaHistóricoGastos'
+import MaisPopulares from './src/telaMaisPopulares'
 
 
 const { Navigator, Screen } = createNativeStackNavigator()
@@ -34,6 +35,7 @@ const App = () => {
 				<Screen name='Sac' component={SAC} options={{ title: 'SAC' }} />
 				<Screen name='telaHistóricoPedidos' component={HistoricoPedidos} options={{ title: 'Histórico de Pedidos' }} />
 				<Screen name='telaHistóricoGastos' component={HistoricoGastos} options={{ title: 'Histórico de Gastos' }} />
+				<Screen name='telaMaisPopulares' component={MaisPopulares} options={{title: 'Mais Populares'}} />
 			</Navigator>
 		</NavigationContainer>
 	)

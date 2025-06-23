@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useRoute } from '@react-navigation/native'
-import React, { useState, useEffect } from 'react'
+import  { useState, useEffect } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 
 const Compras = () => {
