@@ -28,6 +28,8 @@ const Compras = () => {
       <TouchableOpacity
         style={{ backgroundColor: 'green', padding: 15, borderRadius: 10 }}
         onPress={async () => {
+         
+          // Verifica se o item já foi comprado
           const novaQtd = quantidade + 1
           setQuantidade(novaQtd)
           await AsyncStorage.setItem('quantidade_total', novaQtd.toString())

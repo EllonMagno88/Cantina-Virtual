@@ -1,18 +1,17 @@
-import { Link, useNavigation } from '@react-navigation/native'
-import React, { useState } from 'react'
+import {  useNavigation } from '@react-navigation/native'
 import { View, Text, TouchableOpacity, Linking } from 'react-native'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Feather } from '@expo/vector-icons'
-import { TextInput } from 'react-native-paper'
 import estilos from './estilos/Estilos'
 
 const SAC = () => {
     const {goBack, navigate} = useNavigation()
     const enviarFeedback = () => {
 
+      // Define o email, assunto e corpo do email
         const email = 'suportecantinavirtual@gmail.com'
         const assunto = 'Feedback - Cantina Virtual'
         const corpo = 'Escreva aqui seu feedback ou dúvida sobre a Cantina Virtual.'
+        // Cria a URL do email com os parâmetros
         const url = `mailto:${email}?subject=${assunto}&body=${corpo}` 
         Linking.openURL(url)
 

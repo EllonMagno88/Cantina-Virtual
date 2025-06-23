@@ -63,6 +63,7 @@ const resultadosFiltrados = catalogo.filter(item =>
     carregarNome()
   }, [])
 
+  // Em pesquisa.length > 0, exibe os resultados filtrados abaixo da barra de pesquisa se o usuário digitar algo
   return (
     <View style={[estilosTelaPrincipal.PlanoDeFundo]}>
       <View style={[estilosTelaPrincipal.PlanoDeFundo2]} />
@@ -94,7 +95,8 @@ const resultadosFiltrados = catalogo.filter(item =>
             marginLeft: 10,
           }}
         />
-
+       
+        
         {pesquisa.length > 0 && (
           <FlatList data={resultadosFiltrados}
           keyExtractor={(item) => item.id}
